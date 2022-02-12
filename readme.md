@@ -8,7 +8,7 @@ Install the required packages in the main folder using the requirements.txt:
 pip -r requirements.txt
 ```
 
-### 2. Run the falsk server
+### 2. Run the flask server
 In the main folder, execute:
 
 ```bash
