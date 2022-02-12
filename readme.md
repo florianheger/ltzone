@@ -1,14 +1,21 @@
 # LT-Zone
 
 ## Installation instructions
-### 1. Run the falsk server
+
+### 1. Install the required packages
+Install the required packages in the main folder using the requirements.txt:
+```bash
+pip -r requirements.txt
+```
+
+### 2. Run the falsk server
 In the main folder, execute:
 
 ```bash
-python3 app.py
+python app.py
 ```
 
-### 2. Run the Bokeh server
+### 3. Run the Bokeh server
 In another window, execute:
 
 ```bash
