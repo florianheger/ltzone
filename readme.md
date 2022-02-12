@@ -1,4 +1,4 @@
-# LTZone
+# LT-Zone
 
 ## Installation instructions
 ### 1. Run the falsk server
