@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<meta charset="utf-8">
+		<style type="text/css" src="styles.css"></style>
+		<style type="text/css" rel="stylesheet">
+			body {
+				padding-top: 60px;
+			}
+			@media (max-width: 979px) {
+				body {
+					padding-top: 0px;
+				}
+			}
+		</style>
+		<title>LT-Zone</title>
+	</head>
+	<body>
+		
+		<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="/">LT-Zone</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+					aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Introduction</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="/example">Example</a>
+					</li>
+					<li class="nav-item ">
+						<a class="nav-link" href="/start">Start</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		</header>
+		<main role="main" class="container topmargin">
+		<div>
+			{{bokeh_script|safe}}
+		</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Threshold/Concept</th>
+						<th scope="col">Protocol</th>
+						<th scope="col">Strength</th>
+						<th scope="col">Limitations</th>
+						<th scope="col">Physiological assumption</th>
+						<th scope="col">Curve fitting</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">Fixed thresholds[7,5]<br>2mmol<br>4 mmol</th>
+						<td>2,4 m/s start<br>+ 0,4 m/s each stage<br>5 min load</td>
+						<td>+relatively valid<br>+economic [5]<br>+physiological justification (4mmol) [7]</td>
+						<td>@-individual circumstances are not considered→ overestimated the endurance capacity of aerobically trained-, underestimating capacity of anaerobically trained athletes<br>- systematic overestimation</td>
+						<td>“aerobic-anaerobic threshold", defined as the transition range between the purely aerobic to partially anaerobic, lactacide-supplied muscular energy metabolic performance, at a fixed lactate concentration of 4 mmol/l during gradual load [7]<br>increased rate of energy expenditure at which muscle cell homeostasis is sufficiently disturbed to markedly stimulate glycogenolysis, resulting in accelerated glycogen utilization and lactate production→ simple method of estimating the rate of energy expenditure which does not prematurely deplete glycogen stores [7].<br>Reasons for LT increase increased rate of glycolysis and production of NADH and pyruvate. increased use of Type II fibers. decreased rate of lactate removal from the blood</td>
+						<td>3rd order polynomial regression<br>or<br>4th degree polynomial or B-spline[7]</td>
+					</tr>
+					<tr>
+						<td scope="row">distance based<br>Thresholds<br>[1,2,3,10]<br>𝐷𝑚𝑎𝑥<br>𝐷𝑚𝑜𝑑</td>
+						<td>100W start<br>50W every 5 minutes<br>(cycling)<br>>160bpm 2,5 min<br>210 s/stage incremental test (running)<br>25W/3 min (cycling)<br>→blood samples in the last 30s of each stage</td>
+						<td>+ relatively simple graphic determination procedure<br>+ Simple determination of the lactate threshold (LD)→ determined by applying a linear line between the first and last measuring point<br>+Test duration and number of blood samples are low [5]</td>
+						<td>- requires max. load<br>→ submax. load shifts the curve<br>- insufficiently validated<br>- threshold determination influenced by fatigue, motivation, or nutrition<br>- no running-specific loading scheme by original authors→ determination procedures were based on bicycle ergometric data (female cyclists)<br>- systematic underestimation of the maxLass (Dmax)<br>- overestimation</td>
+						<td>Dmax → endurance time trials of ~60 min<br>Dmod → endurance events of shorter duration (≤30 min).<br>[1]</td>
+						<td>3rd order polynomial regression<br>[1,3]</td>
+					</tr>
+					<tr>
+						<td scope="row">Dickhut<br>Individual anaerobic threshold</td>
+						<td>2,4 m/s start<br>0,27-0,55 m/s<br>1-2 km/h each stage<br>3 minutes load<br>30 sec for sample<br>[4,5,10]</td>
+						<td>+ good test economy→ short loading period in the test protocol (15-25 min)<br>+ manageable number of blood samples (five-eight)<br>+ method of threshold determination oriented to observations of training and competition practice→ direct implementation of test results in training practice/direct<br>competition forecasts for different distances<br>+ accurate maxLass forecast [3]</td>
+						<td>- no validity studies exist<br>- based exclusively on empirical observations within the framework of a training science study<br>[5,6]</td>
+						<td>LT1<br>+<br>fixed 1,5 mmol<br>=<br>LT2 (IAS)</td>
+						<td>3rd order polynomial regression<br>or<br>4th degree polynomial or B-spline [4]</td>
+					</tr>
+				</tbody>
+			</table>
+  
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		</main>
+	</body>
+</html>
