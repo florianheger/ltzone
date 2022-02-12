@@ -9,7 +9,7 @@ python3 app.py
 ```
 
 ### 2. Run the Bokeh server
-In another windows, execute:
+In another window, execute:
 
 ```bash
 bokeh serve start.py example.py --allow-websocket-origin=127.0.0.1:5000
