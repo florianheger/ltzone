@@ -5,11 +5,9 @@ class Athlete:
     data = None
 
     def __init__(self, data):
-        if (isinstance(data, str)):
-            self.get_data(data)
-        else:
-            self.get_data_from_table(data)
-
+        self.get_data(data)
+    
+    # intended for data entry from the table
     def get_data_from_table(self, get_attr):
         id = int(get_attr["id"][0])
         task = str(get_attr["task"][0])
@@ -22,6 +20,7 @@ class Athlete:
         keys = get_attr.keys()
         print(keys)
 
+    # get the data from a .csv file or a buffer
     def get_data(self, filename: str):
         self.data = pd.read_csv(filename, delimiter=";")
         stage_length_str = self.data["stage_length"].str.split(":").tolist()
